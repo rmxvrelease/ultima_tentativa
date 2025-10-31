@@ -390,66 +390,6 @@
 				{
 					"name" : "clk",
 					"strict" : false
-				},
-				{
-					"name" : "instrucao[9]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[7]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[8]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[11]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[10]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[24]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[22]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[23]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[20]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[21]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[19]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[17]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[18]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[15]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[16]",
-					"strict" : false
 				}
 			]
 		}

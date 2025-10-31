@@ -24,7 +24,7 @@ on the Quartus Prime software download page.
 	(input)
 	(rect 0 392 168 408)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "clk" (rect 5 0 22 11)(font "Arial" ))
+	(text "clk" (rect 5 0 21 11)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -591,32 +591,32 @@ on the Quartus Prime software download page.
 	)
 )
 (symbol
-	(rect 376 456 560 536)
-	(text "memoria_programa" (rect 5 0 110 11)(font "Arial" ))
-	(text "inst23" (rect 8 64 38 76)(font "Intel Clear" ))
+	(rect 392 456 568 536)
+	(text "programa_1" (rect 5 0 69 11)(font "Arial" ))
+	(text "inst1" (rect 8 64 32 76)(font "Intel Clear" ))
 	(port
 		(pt 0 32)
 		(input)
-		(text "address[9..0]" (rect 0 0 70 11)(font "Arial" ))
-		(text "address[9..0]" (rect 21 27 91 38)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
+		(text "clk" (rect 0 0 16 11)(font "Arial" ))
+		(text "clk" (rect 21 27 37 38)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
 	)
 	(port
 		(pt 0 48)
 		(input)
-		(text "clock" (rect 0 0 29 11)(font "Arial" ))
-		(text "clock" (rect 21 43 50 54)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
+		(text "add[31..0]" (rect 0 0 55 11)(font "Arial" ))
+		(text "add[31..0]" (rect 21 43 76 54)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
-		(pt 184 32)
+		(pt 176 32)
 		(output)
-		(text "q[31..0]" (rect 0 0 42 11)(font "Arial" ))
-		(text "q[31..0]" (rect 128 27 170 38)(font "Arial" ))
-		(line (pt 184 32)(pt 168 32)(line_width 3))
+		(text "ins[31..0]" (rect 0 0 50 11)(font "Arial" ))
+		(text "ins[31..0]" (rect 113 27 163 38)(font "Arial" ))
+		(line (pt 176 32)(pt 160 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 168 64))
+		(rectangle (rect 16 16 160 64))
 	)
 )
 (connector
@@ -1047,22 +1047,12 @@ on the Quartus Prime software download page.
 )
 (connector
 	(pt 1000 376)
-	(pt 1000 256)
-	(bus)
-)
-(connector
-	(pt 1000 376)
 	(pt 360 376)
 	(bus)
 )
 (connector
 	(pt 992 256)
 	(pt 1000 256)
-	(bus)
-)
-(connector
-	(pt 1000 256)
-	(pt 1200 256)
 	(bus)
 )
 (connector
@@ -1078,22 +1068,14 @@ on the Quartus Prime software download page.
 	(pt 1912 400)
 )
 (connector
+	(pt 704 488)
+	(pt 568 488)
+	(bus)
+)
+(connector
 	(pt 360 376)
-	(pt 360 488)
+	(pt 360 504)
 	(bus)
-)
-(connector
-	(pt 360 488)
-	(pt 376 488)
-	(bus)
-)
-(connector
-	(pt 328 504)
-	(pt 376 504)
-)
-(connector
-	(pt 328 400)
-	(pt 328 504)
 )
 (connector
 	(pt 704 -80)
@@ -1107,6 +1089,15 @@ on the Quartus Prime software download page.
 	(bus)
 )
 (connector
+	(pt 360 504)
+	(pt 392 504)
+	(bus)
+)
+(connector
+	(pt 328 400)
+	(pt 328 488)
+)
+(connector
 	(pt 168 400)
 	(pt 328 400)
 )
@@ -1115,8 +1106,19 @@ on the Quartus Prime software download page.
 	(pt 792 400)
 )
 (connector
-	(pt 560 488)
-	(pt 704 488)
+	(pt 392 488)
+	(pt 328 488)
+)
+(connector
+	(text "<<__$DEF_ALIAS520>>" (rect 981 328 993 442)(font "Intel Clear" )(vertical)(invisible))
+	(pt 1000 376)
+	(pt 1000 256)
+	(bus)
+)
+(connector
+	(text "<<__$DEF_ALIAS522>>" (rect 1010 240 1124 252)(font "Intel Clear" )(invisible))
+	(pt 1000 256)
+	(pt 1200 256)
 	(bus)
 )
 (junction (pt 1200 536))

@@ -1,28 +1,62 @@
-module alu(
-  input logic [31:0] a,
-  input logic [31:0] b,
-  input logic [4:0] op,
-  output logic [31:0] o,
-  output logic zero
-);
-  always_comb begin
-    case (op)
-    5'b00000: begin o <= a + b; end
-    5'b00001: begin o <= a - b; end
-    5'b00010: begin o <= a & b; end
-    default: begin o <= a + b; end
-    endcase
-  end
-  assign zero = ~|(a-b);
-endmodule
-
-
 module adder(
   input logic [31:0] a,
   input logic [31:0] b,
   output logic [31:0] o
 );
   assign o = a + b;
+endmodule
+
+module alu (
+    input logic [31:0] a,
+    input logic [31:0] b,
+    input logic [4:0] op,
+    
+    output logic [31:0] o,
+    output logic zero
+);
+
+    localparam OP_ADD = 3'b000;
+    localparam OP_SUB = 3'b001;
+    localparam OP_AND = 3'b010;
+    localparam OP_OR = 3'b011;
+    localparam OP_SLT = 3'b100;
+
+    always_comb begin
+        o = 32'b0;
+
+        case(op)
+            OP_ADD: begin
+                o <= a + b;
+            end
+
+            OP_SUB: begin
+                o <= a - b;
+            end
+
+            OP_AND: begin
+                o <= a & b;
+            end
+
+            OP_OR: begin
+                o <= a | b;
+            end
+
+            OP_SLT: begin
+                if($signed(a) < $signed(b)) begin
+                    o <= 32'd1;
+                end else begin
+                    o <= 32'd0;
+                end
+            end
+
+            default: begin
+                o <= 32'd0;
+            end
+        endcase
+    end
+
+    assign zero = (o==32'd0);
+
 endmodule
 
 
@@ -46,8 +80,8 @@ module registers(
       regs[rd] <= write_data;
     end
   end 
-  assign data_1 = (rs1 == 0) ? 32'b1 : regs[rs1];
-  assign data_2 = (rs2 == 0) ? 32'b1 : regs[rs2];
+  assign data_1 = (rs1 == 0) ? 32'b0 : regs[rs1];
+  assign data_2 = (rs2 == 0) ? 32'b0 : regs[rs2];
   assign reg0_window = regs[5'b00000];
   assign reg1_window = regs[5'b00001];
   assign reg2_window = regs[5'b00010];
@@ -80,13 +114,103 @@ module control_unit(
 	output logic alu_origin,
 	output logic write_to_reg
 );
-	assign mem_to_reg = 1'b0;
-	assign read_from_mem = 1'b0;
-	assign write_to_mem = 1'b0;
-	assign branch = 1'b0;
-	assign alu_op = 5'b00000;
-	assign alu_origin = 1'b0;
-	assign write_to_reg = 1'b1;
+	always_comb begin
+    case (instruction[6:0])
+    7'b0110011: begin
+      // add, and, sub, or, slt
+      mem_to_reg <= 1'b0;
+      branch <= 1'b0;
+      write_to_mem <= 1'b0;
+      write_to_reg <= 1'b1;
+      alu_origin <= 1'b0;
+      case (instruction[31:25])
+      7'b0100000: begin
+        alu_op <= 5'b00001;
+      end
+      default: begin
+        case (instruction[14:12])
+          3'b000: begin
+            alu_op <= 5'b00000;
+          end
+          3'b010: begin
+            alu_op <= 5'b00100;
+          end
+          3'b110: begin
+            alu_op <= 5'b00011;
+          end
+          default: begin
+            alu_op <= 5'b00010;
+          end
+        endcase
+        end
+      endcase
+    end
+    7'b0000011: begin
+      // lw
+      mem_to_reg <= 1'b1;
+      branch <= 1'b0;
+      alu_op <= 5'b00000;
+      write_to_mem <= 1'b0;
+      write_to_reg <= 1'b1;
+      alu_origin <= 1'b1;
+    end
+    7'b0100011: begin
+      // sw
+      mem_to_reg <= 1'b0;
+      branch <= 1'b0;
+      alu_op <= 5'b00000;
+      write_to_mem <= 1'b1;
+      write_to_reg <= 1'b0;
+      alu_origin <= 1'b1;
+    end
+    7'b1100011: begin
+      // beq
+      mem_to_reg <= 1'b0;
+      branch <= 1'b1;
+      alu_op <= 5'b00001;
+      write_to_mem <= 1'b0;
+      write_to_reg <= 1'b0;
+      alu_origin <= 1'b0;
+    end
+    7'b0010011: begin
+      //addi
+      mem_to_reg <= 1'b0;
+      branch <= 1'b0;
+      alu_op <= 5'b00000;
+      write_to_mem <= 1'b0;
+      write_to_reg <= 1'b1;
+      alu_origin <= 1'b1;
+    end
+    7'b1101111: begin
+      // jal (não implementado)
+      mem_to_reg <= 1'b0;
+      branch <= 1'b0;
+      alu_op <= 5'b00000;
+      write_to_mem <= 1'b0;
+      write_to_reg <= 1'b1;
+      alu_origin <= 1'b1;
+    end
+    7'b1100111: begin
+      // jalr (não implementado)
+      mem_to_reg <= 1'b0;
+      branch <= 1'b0;
+      alu_op <= 5'b00000;
+      write_to_mem <= 1'b0;
+      write_to_reg <= 1'b1;
+      alu_origin <= 1'b1;
+    end
+    default: begin
+      // lui (não implementado)
+      mem_to_reg <= 1'b0;
+      branch <= 1'b0;
+      alu_op <= 5'b00000;
+      write_to_mem <= 1'b0;
+      write_to_reg <= 1'b1;
+      alu_origin <= 1'b1;
+    end
+    endcase
+	end
+  assign read_from_mem = 1'b1;
 endmodule
 
 module immediate_generator(
@@ -143,4 +267,19 @@ module program_counter(
     pc_value <= in;
   end
   assign out = pc_value;
+endmodule
+
+module programa_1(
+  input logic clk,
+  input logic [31:0] add,
+  output logic [31:0] ins
+);
+  always @(posedge clk) begin
+    case (add)
+    32'b00000: ins = 32'b00000000000100001000000010010011;
+    32'b00100: ins = 32'b00000000000100010000000100010011;
+    32'b01000: ins = 32'b00000000001000001000000110110011;
+    default: ins = 32'b0;
+    endcase
+  end
 endmodule

@@ -10,23 +10,23 @@ z2
 cModel Technology
 Z0 d/home/rafa/tudo/materias/oac/ultima_tentativa/simulation/qsim
 vprocessador
-Z1 !s110 1761928223
+Z1 !s110 1761953141
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 r1
 !s85 0
 2processador.vo
 !i10b 1
-!s100 bjdZMHKJ^IL?@hlHKHnZL1
-I_RFO=VKmTXP?N0bBVXIm]0
+!s100 ]jH?6T@9zKMJz=3MCW86F0
+IQ`@a7z`de7`EAdBW;j>>82
 R0
-w1761928223
+w1761953140
 8processador.vo
 Fprocessador.vo
-!i122 12
-L0 32 50535
+!i122 14
+L0 32 17964
 Z3 OL;L;2024.3;79
 31
-Z4 !s108 1761928223.000000
+Z4 !s108 1761953141.000000
 !s107 processador.vo|
 !s90 -work|work|processador.vo|
 !i113 0
@@ -39,14 +39,14 @@ r1
 !s85 0
 2Waveform.vwf.vt
 !i10b 1
-!s100 7DBX`d9HQ_mi[HTM<WFe:2
-IK<Ii:aGd`az9[Pj8Y<OXU2
+!s100 1LFdE@k5L8UM8bY9X_Ie:2
+INGflHS17jjV9;ghZ:DP:f1
 R0
-w1761928222
+w1761953139
 8Waveform.vwf.vt
 FWaveform.vwf.vt
-!i122 13
-L0 30 198
+!i122 15
+L0 30 36
 R3
 31
 R4

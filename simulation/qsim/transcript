@@ -2,25 +2,25 @@
 # ** Warning: (vlib-34) Library already exists at "work".
 # Errors: 0, Warnings: 1
 # Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
-# Start time: 13:30:23 on Oct 31,2025
+# Start time: 20:25:41 on Oct 31,2025
 # vlog -work work processador.vo 
 # -- Compiling module processador
 # 
 # Top level modules:
 # 	processador
-# End time: 13:30:23 on Oct 31,2025, Elapsed time: 0:00:00
+# End time: 20:25:41 on Oct 31,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
-# Start time: 13:30:23 on Oct 31,2025
+# Start time: 20:25:41 on Oct 31,2025
 # vlog -work work Waveform.vwf.vt 
 # -- Compiling module processador_vlg_vec_tst
 # 
 # Top level modules:
 # 	processador_vlg_vec_tst
-# End time: 13:30:23 on Oct 31,2025, Elapsed time: 0:00:00
+# End time: 20:25:41 on Oct 31,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -suppress 12110 -novopt -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.processador_vlg_vec_tst 
-# Start time: 13:30:23 on Oct 31,2025
+# Start time: 20:25:41 on Oct 31,2025
 # ** Warning: (vsim-8891) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
 # //  Questa Intel Starter FPGA Edition-64
 # //  Version 2024.3 linux_x86_64 Sep 10 2024
@@ -47,9 +47,47 @@
 # Loading cyclonev_ver.cyclonev_clkena
 # Loading cyclonev_ver.cyclonev_lcell_comb
 # Loading altera_ver.dffeas
+# Refreshing /home/rafa/tudo/bin/quartus/questa_fse/intel/verilog/cyclonev.cyclonev_jtag
+# ** Warning: (vlog-8891) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
+# Loading cyclonev_ver.cyclonev_jtag
+# ** Warning: (vlog-8891) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
+# Refreshing /home/rafa/tudo/bin/quartus/questa_fse/intel/verilog/cyclonev.cyclonev_ram_block
+# ** Warning: (vlog-8891) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
+# Loading cyclonev_ver.cyclonev_ram_block
+# Refreshing /home/rafa/tudo/bin/quartus/questa_fse/intel/verilog/altera_lnsim.generic_m10k
+# ** Warning: (vlog-8891) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
+# Loading sv_std.std
+# Loading altera_lnsim_ver.generic_m10k
+# Refreshing /home/rafa/tudo/bin/quartus/questa_fse/intel/verilog/altera_lnsim.common_28nm_ram_block
+# ** Warning: (vlog-8891) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
+# Refreshing /home/rafa/tudo/bin/quartus/questa_fse/intel/verilog/altera_lnsim.altera_lnsim_functions
+# ** Warning: (vlog-8891) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
+# Loading altera_lnsim_ver.altera_lnsim_functions
+# Loading altera_lnsim_ver.common_28nm_ram_block
+# Refreshing /home/rafa/tudo/bin/quartus/questa_fse/intel/verilog/altera_lnsim.common_28nm_ram_register
+# ** Warning: (vlog-8891) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
+# Loading altera_lnsim_ver.common_28nm_ram_register
+# Refreshing /home/rafa/tudo/bin/quartus/questa_fse/intel/verilog/altera_lnsim.common_28nm_ram_pulse_generator
+# ** Warning: (vlog-8891) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
+# Loading altera_lnsim_ver.common_28nm_ram_pulse_generator
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'i1'.  Expected 9, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /processador_vlg_vec_tst/i1 File: Waveform.vwf.vt Line: 41
+# ** Warning: (vsim-3722) Waveform.vwf.vt(41): [TFMPC] - Missing connection for port 'altera_reserved_tms'.
+# ** Warning: (vsim-3722) Waveform.vwf.vt(41): [TFMPC] - Missing connection for port 'altera_reserved_tck'.
+# ** Warning: (vsim-3722) Waveform.vwf.vt(41): [TFMPC] - Missing connection for port 'altera_reserved_tdi'.
+# ** Warning: (vsim-3722) Waveform.vwf.vt(41): [TFMPC] - Missing connection for port 'altera_reserved_tdo'.
 # Loading altera_ver.PRIM_GDFF_LOW
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'altera_internal_jtag'.  Expected 21, found 14.
+#    Time: 0 ps  Iteration: 0  Instance: /processador_vlg_vec_tst/i1/altera_internal_jtag File: processador.vo Line: 9653
+# ** Warning: (vsim-3722) processador.vo(9653): [TFMPC] - Missing connection for port 'ntrst'.
+# ** Warning: (vsim-3722) processador.vo(9653): [TFMPC] - Missing connection for port 'corectl'.
+# ** Warning: (vsim-3722) processador.vo(9653): [TFMPC] - Missing connection for port 'ntdopinena'.
+# ** Warning: (vsim-3722) processador.vo(9653): [TFMPC] - Missing connection for port 'tckcore'.
+# ** Warning: (vsim-3722) processador.vo(9653): [TFMPC] - Missing connection for port 'tdicore'.
+# ** Warning: (vsim-3722) processador.vo(9653): [TFMPC] - Missing connection for port 'tmscore'.
+# ** Warning: (vsim-3722) processador.vo(9653): [TFMPC] - Missing connection for port 'tdocore'.
 # after#26
-# ** Note: $finish    : Waveform.vwf.vt(53)
+# ** Note: $finish    : Waveform.vwf.vt(51)
 #    Time: 1 us  Iteration: 0  Instance: /processador_vlg_vec_tst
-# End time: 13:30:24 on Oct 31,2025, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 1
+# End time: 20:25:41 on Oct 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 14

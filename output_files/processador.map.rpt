@@ -1,5 +1,5 @@
 Analysis & Synthesis report for processador
-Fri Oct 31 13:29:08 2025
+Fri Oct 31 20:23:37 2025
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -13,12 +13,22 @@ Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|altsyncram_pqg2:altsyncram1
+ 16. Parameter Settings for User Entity Instance: memoria_dados:inst21|altsyncram:altsyncram_component
+ 17. altsyncram Parameter Settings by Entity Instance
+ 18. In-System Memory Content Editor Settings
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Post-Synthesis Netlist Statistics for Partition sld_hub:auto_hub
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
+ 23. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -45,16 +55,16 @@ on the Quartus Prime software download page.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Oct 31 13:29:08 2025           ;
+; Analysis & Synthesis Status     ; Successful - Fri Oct 31 20:23:37 2025           ;
 ; Quartus Prime Version           ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                   ; processador                                     ;
 ; Top-level Entity Name           ; processador                                     ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 992                                             ;
-; Total pins                      ; 161                                             ;
+; Total registers                 ; 284                                             ;
+; Total pins                      ; 129                                             ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 0                                               ;
+; Total block memory bits         ; 32,768                                          ;
 ; Total DSP Blocks                ; 0                                               ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
@@ -165,105 +175,1094 @@ on the Quartus Prime software download page.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processor 8            ;   0.0%      ;
-;     Processors 9-10        ;   0.0%      ;
+;     Processors 2-10        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                            ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                  ; Library ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------+---------+
-; processador.bdf                  ; yes             ; User Block Diagram/Schematic File  ; /home/rafa/tudo/materias/oac/ultima_tentativa/processador.bdf ;         ;
-; componentes.sv                   ; yes             ; User SystemVerilog HDL File        ; /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv  ;         ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                               ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+------------------------------------------------------------------------------------------------------------------+-------------+
+; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                                     ; Library     ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+------------------------------------------------------------------------------------------------------------------+-------------+
+; processador.bdf                                                    ; yes             ; User Block Diagram/Schematic File            ; /home/rafa/tudo/materias/oac/ultima_tentativa/processador.bdf                                                    ;             ;
+; componentes.sv                                                     ; yes             ; User SystemVerilog HDL File                  ; /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv                                                     ;             ;
+; memoria_dados.v                                                    ; yes             ; User Wizard-Generated File                   ; /home/rafa/tudo/materias/oac/ultima_tentativa/memoria_dados.v                                                    ;             ;
+; altsyncram.tdf                                                     ; yes             ; Megafunction                                 ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/altsyncram.tdf                                       ;             ;
+; stratix_ram_block.inc                                              ; yes             ; Megafunction                                 ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/stratix_ram_block.inc                                ;             ;
+; lpm_mux.inc                                                        ; yes             ; Megafunction                                 ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/lpm_mux.inc                                          ;             ;
+; lpm_decode.inc                                                     ; yes             ; Megafunction                                 ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/lpm_decode.inc                                       ;             ;
+; aglobal241.inc                                                     ; yes             ; Megafunction                                 ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/aglobal241.inc                                       ;             ;
+; a_rdenreg.inc                                                      ; yes             ; Megafunction                                 ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/a_rdenreg.inc                                        ;             ;
+; altrom.inc                                                         ; yes             ; Megafunction                                 ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/altrom.inc                                           ;             ;
+; altram.inc                                                         ; yes             ; Megafunction                                 ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/altram.inc                                           ;             ;
+; altdpram.inc                                                       ; yes             ; Megafunction                                 ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/altdpram.inc                                         ;             ;
+; db/altsyncram_rap1.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; /home/rafa/tudo/materias/oac/ultima_tentativa/db/altsyncram_rap1.tdf                                             ;             ;
+; db/altsyncram_pqg2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; /home/rafa/tudo/materias/oac/ultima_tentativa/db/altsyncram_pqg2.tdf                                             ;             ;
+; sld_mod_ram_rom.vhd                                                ; yes             ; Encrypted Megafunction                       ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd                                  ;             ;
+; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction                       ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                        ;             ;
+; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction                       ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                    ;             ;
+; sld_rom_sr.vhd                                                     ; yes             ; Encrypted Megafunction                       ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/sld_rom_sr.vhd                                       ;             ;
+; sld_hub.vhd                                                        ; yes             ; Encrypted Megafunction                       ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/sld_hub.vhd                                          ; altera_sld  ;
+; db/ip/slda00c2e34/alt_sld_fab.v                                    ; yes             ; Encrypted Auto-Found Verilog HDL File        ; /home/rafa/tudo/materias/oac/ultima_tentativa/db/ip/slda00c2e34/alt_sld_fab.v                                    ; alt_sld_fab ;
+; db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab.v             ; yes             ; Encrypted Auto-Found Verilog HDL File        ; /home/rafa/tudo/materias/oac/ultima_tentativa/db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab.v             ; alt_sld_fab ;
+; db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; yes             ; Auto-Found SystemVerilog HDL File            ; /home/rafa/tudo/materias/oac/ultima_tentativa/db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; alt_sld_fab ;
+; db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; /home/rafa/tudo/materias/oac/ultima_tentativa/db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; alt_sld_fab ;
+; db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; yes             ; Encrypted Auto-Found VHDL File               ; /home/rafa/tudo/materias/oac/ultima_tentativa/db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; alt_sld_fab ;
+; db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; /home/rafa/tudo/materias/oac/ultima_tentativa/db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; alt_sld_fab ;
+; sld_jtag_hub.vhd                                                   ; yes             ; Encrypted Megafunction                       ; /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                     ;             ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+------------------------------------------------------------------------------------------------------------------+-------------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 867       ;
-;                                             ;           ;
-; Combinational ALUT usage for logic          ; 771       ;
-;     -- 7 input functions                    ; 4         ;
-;     -- 6 input functions                    ; 540       ;
-;     -- 5 input functions                    ; 193       ;
-;     -- 4 input functions                    ; 0         ;
-;     -- <=3 input functions                  ; 34        ;
-;                                             ;           ;
-; Dedicated logic registers                   ; 992       ;
-;                                             ;           ;
-; I/O pins                                    ; 161       ;
-;                                             ;           ;
-; Total DSP Blocks                            ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 992       ;
-; Total fan-out                               ; 7567      ;
-; Average fan-out                             ; 3.63      ;
-+---------------------------------------------+-----------+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                            ;
++---------------------------------------------+--------------------------+
+; Resource                                    ; Usage                    ;
++---------------------------------------------+--------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 202                      ;
+;                                             ;                          ;
+; Combinational ALUT usage for logic          ; 321                      ;
+;     -- 7 input functions                    ; 2                        ;
+;     -- 6 input functions                    ; 26                       ;
+;     -- 5 input functions                    ; 126                      ;
+;     -- 4 input functions                    ; 58                       ;
+;     -- <=3 input functions                  ; 109                      ;
+;                                             ;                          ;
+; Dedicated logic registers                   ; 284                      ;
+;                                             ;                          ;
+; I/O pins                                    ; 129                      ;
+; Total MLAB memory bits                      ; 0                        ;
+; Total block memory bits                     ; 32768                    ;
+;                                             ;                          ;
+; Total DSP Blocks                            ; 0                        ;
+;                                             ;                          ;
+; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
+; Maximum fan-out                             ; 209                      ;
+; Total fan-out                               ; 3260                     ;
+; Average fan-out                             ; 3.61                     ;
++---------------------------------------------+--------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                             ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name          ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------+-------------+--------------+
-; |processador               ; 771 (0)             ; 992 (0)                   ; 0                 ; 0          ; 161  ; 0            ; |processador                 ; processador ; work         ;
-;    |alu:inst10|            ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |processador|alu:inst10      ; alu         ; work         ;
-;    |registers:inst2|       ; 739 (739)           ; 992 (992)                 ; 0                 ; 0          ; 0    ; 0            ; |processador|registers:inst2 ; registers   ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------+-------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                     ; Entity Name                       ; Library Name ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; |processador                                                                                                                            ; 321 (1)             ; 284 (0)                   ; 32768             ; 0          ; 129  ; 0            ; |processador                                                                                                                                                                                                                                                                                                                                            ; processador                       ; work         ;
+;    |alu:inst10|                                                                                                                         ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |processador|alu:inst10                                                                                                                                                                                                                                                                                                                                 ; alu                               ; work         ;
+;    |memoria_dados:inst21|                                                                                                               ; 49 (0)              ; 66 (0)                    ; 32768             ; 0          ; 0    ; 0            ; |processador|memoria_dados:inst21                                                                                                                                                                                                                                                                                                                       ; memoria_dados                     ; work         ;
+;       |altsyncram:altsyncram_component|                                                                                                 ; 49 (0)              ; 66 (0)                    ; 32768             ; 0          ; 0    ; 0            ; |processador|memoria_dados:inst21|altsyncram:altsyncram_component                                                                                                                                                                                                                                                                                       ; altsyncram                        ; work         ;
+;          |altsyncram_rap1:auto_generated|                                                                                               ; 49 (0)              ; 66 (0)                    ; 32768             ; 0          ; 0    ; 0            ; |processador|memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated                                                                                                                                                                                                                                                        ; altsyncram_rap1                   ; work         ;
+;             |altsyncram_pqg2:altsyncram1|                                                                                               ; 0 (0)               ; 0 (0)                     ; 32768             ; 0          ; 0    ; 0            ; |processador|memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|altsyncram_pqg2:altsyncram1                                                                                                                                                                                                                            ; altsyncram_pqg2                   ; work         ;
+;             |sld_mod_ram_rom:mgl_prim2|                                                                                                 ; 49 (32)             ; 66 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |processador|memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|sld_mod_ram_rom:mgl_prim2                                                                                                                                                                                                                              ; sld_mod_ram_rom                   ; work         ;
+;                |sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|                                                                     ; 17 (17)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |processador|memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr                                                                                                                                                                           ; sld_rom_sr                        ; work         ;
+;    |mux32_1:inst|                                                                                                                       ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |processador|mux32_1:inst                                                                                                                                                                                                                                                                                                                               ; mux32_1                           ; work         ;
+;    |plus_four:inst7|                                                                                                                    ; 29 (29)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |processador|plus_four:inst7                                                                                                                                                                                                                                                                                                                            ; plus_four                         ; work         ;
+;    |program_counter:inst9|                                                                                                              ; 1 (1)               ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |processador|program_counter:inst9                                                                                                                                                                                                                                                                                                                      ; program_counter                   ; work         ;
+;    |programa_1:inst1|                                                                                                                   ; 12 (12)             ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |processador|programa_1:inst1                                                                                                                                                                                                                                                                                                                           ; programa_1                        ; work         ;
+;    |registers:inst2|                                                                                                                    ; 67 (67)             ; 96 (96)                   ; 0                 ; 0          ; 0    ; 0            ; |processador|registers:inst2                                                                                                                                                                                                                                                                                                                            ; registers                         ; work         ;
+;    |sld_hub:auto_hub|                                                                                                                   ; 98 (1)              ; 86 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |processador|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
+;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 97 (0)              ; 86 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
+;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 97 (0)              ; 86 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
+;             |alt_sld_fab_alt_sld_fab:alt_sld_fab|                                                                                       ; 97 (1)              ; 86 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                                                                                                    ; alt_sld_fab_alt_sld_fab           ; alt_sld_fab  ;
+;                |alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|                                                                            ; 96 (0)              ; 81 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric                                                                        ; alt_sld_fab_alt_sld_fab_sldfabric ; alt_sld_fab  ;
+;                   |sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|                                                                        ; 96 (63)             ; 81 (53)                   ; 0                 ; 0          ; 0    ; 0            ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub                           ; sld_jtag_hub                      ; work         ;
+;                      |sld_rom_sr:hub_info_reg|                                                                                          ; 14 (14)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg   ; sld_rom_sr                        ; work         ;
+;                      |sld_shadow_jsm:shadow_jsm|                                                                                        ; 19 (19)             ; 19 (19)                   ; 0                 ; 0          ; 0    ; 0            ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_shadow_jsm:shadow_jsm ; sld_shadow_jsm                    ; altera_sld   ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                   ;
-+----------------------------------------+---------------------------------------------+
-; Register name                          ; Reason for Removal                          ;
-+----------------------------------------+---------------------------------------------+
-; registers:inst2|regs[0][31]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][30]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][29]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][28]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][27]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][26]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][25]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][24]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][23]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][22]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][21]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][20]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][19]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][18]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][17]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][16]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][15]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][14]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][13]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][12]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][11]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][10]            ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][9]             ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][8]             ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][7]             ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][6]             ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][5]             ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][4]             ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][3]             ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][2]             ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][1]             ; Stuck at GND due to stuck port clock_enable ;
-; registers:inst2|regs[0][0]             ; Stuck at GND due to stuck port clock_enable ;
-; Total Number of Removed Registers = 32 ;                                             ;
-+----------------------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                              ;
++----------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+------+
+; Name                                                                                                                       ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF  ;
++----------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+------+
+; memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|altsyncram_pqg2:altsyncram1|ALTSYNCRAM ; AUTO ; True Dual Port ; 1024         ; 32           ; 1024         ; 32           ; 32768 ; None ;
++----------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                                                                                                                                                                                              ;
++--------+--------------+---------+--------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                                                                                                                                                                                                                                  ; IP Include File ;
++--------+--------------+---------+--------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                 ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                             ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_presplit:presplit   ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_splitter:splitter   ;                 ;
+; Altera ; RAM: 1-PORT  ; 24.1    ; N/A          ; N/A          ; |processador|memoria_dados:inst21                                                                                                                                                                                                                                                ; memoria_dados.v ;
++--------+--------------+---------+--------------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                              ;
++-------------------------------------------------+-----------------------------------------------+
+; Register name                                   ; Reason for Removal                            ;
++-------------------------------------------------+-----------------------------------------------+
+; programa_1:inst1|ins[2,3,6,9..14,17..19,22..31] ; Stuck at GND due to stuck port data_in        ;
+; registers:inst2|regs[4][0]                      ; Lost fanout                                   ;
+; registers:inst2|regs[4][1]                      ; Lost fanout                                   ;
+; registers:inst2|regs[4][2]                      ; Lost fanout                                   ;
+; registers:inst2|regs[4][3]                      ; Lost fanout                                   ;
+; registers:inst2|regs[4][4]                      ; Lost fanout                                   ;
+; registers:inst2|regs[4][5]                      ; Lost fanout                                   ;
+; registers:inst2|regs[4][6]                      ; Lost fanout                                   ;
+; registers:inst2|regs[4][7]                      ; Lost fanout                                   ;
+; registers:inst2|regs[4][8]                      ; Lost fanout                                   ;
+; registers:inst2|regs[4][9]                      ; Lost fanout                                   ;
+; registers:inst2|regs[4][10]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][11]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][12]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][13]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][14]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][15]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][16]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][17]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][18]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][19]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][20]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][21]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][22]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][23]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][24]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][25]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][26]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][27]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][28]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][29]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][30]                     ; Lost fanout                                   ;
+; registers:inst2|regs[4][31]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][0]                      ; Lost fanout                                   ;
+; registers:inst2|regs[5][1]                      ; Lost fanout                                   ;
+; registers:inst2|regs[5][2]                      ; Lost fanout                                   ;
+; registers:inst2|regs[5][3]                      ; Lost fanout                                   ;
+; registers:inst2|regs[5][4]                      ; Lost fanout                                   ;
+; registers:inst2|regs[5][5]                      ; Lost fanout                                   ;
+; registers:inst2|regs[5][6]                      ; Lost fanout                                   ;
+; registers:inst2|regs[5][7]                      ; Lost fanout                                   ;
+; registers:inst2|regs[5][8]                      ; Lost fanout                                   ;
+; registers:inst2|regs[5][9]                      ; Lost fanout                                   ;
+; registers:inst2|regs[5][10]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][11]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][12]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][13]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][14]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][15]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][16]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][17]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][18]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][19]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][20]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][21]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][22]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][23]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][24]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][25]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][26]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][27]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][28]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][29]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][30]                     ; Lost fanout                                   ;
+; registers:inst2|regs[5][31]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][0]                      ; Lost fanout                                   ;
+; registers:inst2|regs[6][1]                      ; Lost fanout                                   ;
+; registers:inst2|regs[6][2]                      ; Lost fanout                                   ;
+; registers:inst2|regs[6][3]                      ; Lost fanout                                   ;
+; registers:inst2|regs[6][4]                      ; Lost fanout                                   ;
+; registers:inst2|regs[6][5]                      ; Lost fanout                                   ;
+; registers:inst2|regs[6][6]                      ; Lost fanout                                   ;
+; registers:inst2|regs[6][7]                      ; Lost fanout                                   ;
+; registers:inst2|regs[6][8]                      ; Lost fanout                                   ;
+; registers:inst2|regs[6][9]                      ; Lost fanout                                   ;
+; registers:inst2|regs[6][10]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][11]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][12]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][13]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][14]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][15]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][16]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][17]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][18]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][19]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][20]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][21]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][22]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][23]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][24]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][25]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][26]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][27]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][28]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][29]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][30]                     ; Lost fanout                                   ;
+; registers:inst2|regs[6][31]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][0]                      ; Lost fanout                                   ;
+; registers:inst2|regs[7][1]                      ; Lost fanout                                   ;
+; registers:inst2|regs[7][2]                      ; Lost fanout                                   ;
+; registers:inst2|regs[7][3]                      ; Lost fanout                                   ;
+; registers:inst2|regs[7][4]                      ; Lost fanout                                   ;
+; registers:inst2|regs[7][5]                      ; Lost fanout                                   ;
+; registers:inst2|regs[7][6]                      ; Lost fanout                                   ;
+; registers:inst2|regs[7][7]                      ; Lost fanout                                   ;
+; registers:inst2|regs[7][8]                      ; Lost fanout                                   ;
+; registers:inst2|regs[7][9]                      ; Lost fanout                                   ;
+; registers:inst2|regs[7][10]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][11]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][12]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][13]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][14]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][15]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][16]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][17]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][18]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][19]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][20]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][21]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][22]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][23]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][24]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][25]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][26]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][27]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][28]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][29]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][30]                     ; Lost fanout                                   ;
+; registers:inst2|regs[7][31]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][0]                      ; Lost fanout                                   ;
+; registers:inst2|regs[8][1]                      ; Lost fanout                                   ;
+; registers:inst2|regs[8][2]                      ; Lost fanout                                   ;
+; registers:inst2|regs[8][3]                      ; Lost fanout                                   ;
+; registers:inst2|regs[8][4]                      ; Lost fanout                                   ;
+; registers:inst2|regs[8][5]                      ; Lost fanout                                   ;
+; registers:inst2|regs[8][6]                      ; Lost fanout                                   ;
+; registers:inst2|regs[8][7]                      ; Lost fanout                                   ;
+; registers:inst2|regs[8][8]                      ; Lost fanout                                   ;
+; registers:inst2|regs[8][9]                      ; Lost fanout                                   ;
+; registers:inst2|regs[8][10]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][11]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][12]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][13]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][14]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][15]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][16]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][17]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][18]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][19]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][20]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][21]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][22]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][23]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][24]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][25]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][26]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][27]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][28]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][29]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][30]                     ; Lost fanout                                   ;
+; registers:inst2|regs[8][31]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][0]                      ; Lost fanout                                   ;
+; registers:inst2|regs[9][1]                      ; Lost fanout                                   ;
+; registers:inst2|regs[9][2]                      ; Lost fanout                                   ;
+; registers:inst2|regs[9][3]                      ; Lost fanout                                   ;
+; registers:inst2|regs[9][4]                      ; Lost fanout                                   ;
+; registers:inst2|regs[9][5]                      ; Lost fanout                                   ;
+; registers:inst2|regs[9][6]                      ; Lost fanout                                   ;
+; registers:inst2|regs[9][7]                      ; Lost fanout                                   ;
+; registers:inst2|regs[9][8]                      ; Lost fanout                                   ;
+; registers:inst2|regs[9][9]                      ; Lost fanout                                   ;
+; registers:inst2|regs[9][10]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][11]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][12]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][13]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][14]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][15]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][16]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][17]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][18]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][19]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][20]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][21]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][22]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][23]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][24]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][25]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][26]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][27]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][28]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][29]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][30]                     ; Lost fanout                                   ;
+; registers:inst2|regs[9][31]                     ; Lost fanout                                   ;
+; registers:inst2|regs[10][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[10][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[10][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[10][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[10][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[10][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[10][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[10][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[10][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[10][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[10][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[10][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[11][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[11][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[11][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[11][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[11][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[11][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[11][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[11][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[11][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[11][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[11][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[12][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[12][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[12][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[12][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[12][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[12][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[12][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[12][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[12][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[12][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[12][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[13][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[13][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[13][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[13][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[13][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[13][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[13][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[13][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[13][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[13][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[13][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[14][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[14][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[14][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[14][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[14][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[14][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[14][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[14][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[14][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[14][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[14][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[15][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[15][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[15][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[15][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[15][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[15][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[15][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[15][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[15][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[15][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[15][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[16][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[16][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[16][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[16][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[16][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[16][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[16][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[16][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[16][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[16][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[16][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[17][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[17][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[17][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[17][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[17][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[17][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[17][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[17][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[17][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[17][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[17][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[18][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[18][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[18][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[18][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[18][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[18][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[18][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[18][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[18][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[18][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[18][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[19][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[19][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[19][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[19][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[19][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[19][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[19][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[19][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[19][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[19][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[19][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[20][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[20][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[20][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[20][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[20][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[20][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[20][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[20][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[20][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[20][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[20][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[21][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[21][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[21][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[21][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[21][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[21][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[21][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[21][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[21][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[21][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[21][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[22][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[22][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[22][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[22][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[22][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[22][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[22][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[22][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[22][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[22][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[22][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[23][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[23][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[23][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[23][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[23][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[23][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[23][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[23][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[23][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[23][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[23][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[24][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[24][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[24][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[24][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[24][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[24][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[24][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[24][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[24][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[24][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[24][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[25][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[25][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[25][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[25][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[25][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[25][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[25][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[25][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[25][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[25][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[25][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[26][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[26][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[26][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[26][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[26][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[26][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[26][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[26][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[26][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[26][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[26][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[27][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[27][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[27][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[27][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[27][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[27][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[27][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[27][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[27][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[27][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[27][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[28][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[28][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[28][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[28][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[28][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[28][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[28][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[28][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[28][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[28][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[28][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[29][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[29][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[29][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[29][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[29][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[29][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[29][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[29][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[29][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[29][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[29][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[30][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[30][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[30][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[30][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[30][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[30][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[30][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[30][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[30][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[30][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[30][31]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][0]                     ; Lost fanout                                   ;
+; registers:inst2|regs[31][1]                     ; Lost fanout                                   ;
+; registers:inst2|regs[31][2]                     ; Lost fanout                                   ;
+; registers:inst2|regs[31][3]                     ; Lost fanout                                   ;
+; registers:inst2|regs[31][4]                     ; Lost fanout                                   ;
+; registers:inst2|regs[31][5]                     ; Lost fanout                                   ;
+; registers:inst2|regs[31][6]                     ; Lost fanout                                   ;
+; registers:inst2|regs[31][7]                     ; Lost fanout                                   ;
+; registers:inst2|regs[31][8]                     ; Lost fanout                                   ;
+; registers:inst2|regs[31][9]                     ; Lost fanout                                   ;
+; registers:inst2|regs[31][10]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][11]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][12]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][13]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][14]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][15]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][16]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][17]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][18]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][19]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][20]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][21]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][22]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][23]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][24]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][25]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][26]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][27]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][28]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][29]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][30]                    ; Lost fanout                                   ;
+; registers:inst2|regs[31][31]                    ; Lost fanout                                   ;
+; program_counter:inst9|pc_value[1]               ; Merged with program_counter:inst9|pc_value[0] ;
+; programa_1:inst1|ins[15]                        ; Merged with programa_1:inst1|ins[7]           ;
+; programa_1:inst1|ins[21]                        ; Merged with programa_1:inst1|ins[5]           ;
+; programa_1:inst1|ins[0,1]                       ; Merged with programa_1:inst1|ins[4]           ;
+; program_counter:inst9|pc_value[0]               ; Stuck at GND due to stuck port data_in        ;
+; registers:inst2|regs[0][31]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][30]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][29]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][28]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][27]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][26]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][25]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][24]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][23]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][22]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][21]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][20]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][19]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][18]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][17]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][16]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][15]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][14]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][13]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][12]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][11]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][10]                     ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][9]                      ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][8]                      ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][7]                      ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][6]                      ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][5]                      ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][4]                      ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][3]                      ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][2]                      ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][1]                      ; Stuck at GND due to stuck port clock_enable   ;
+; registers:inst2|regs[0][0]                      ; Stuck at GND due to stuck port clock_enable   ;
+; Total Number of Removed Registers = 956         ;                                               ;
++-------------------------------------------------+-----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                  ;
++--------------------------+---------------------------+---------------------------------------------------------------------------------------+
+; Register name            ; Reason for Removal        ; Registers Removed due to This Register                                                ;
++--------------------------+---------------------------+---------------------------------------------------------------------------------------+
+; programa_1:inst1|ins[11] ; Stuck at GND              ; registers:inst2|regs[0][31], registers:inst2|regs[0][30],                             ;
+;                          ; due to stuck port data_in ; registers:inst2|regs[0][29], registers:inst2|regs[0][28],                             ;
+;                          ;                           ; registers:inst2|regs[0][27], registers:inst2|regs[0][26],                             ;
+;                          ;                           ; registers:inst2|regs[0][25], registers:inst2|regs[0][24],                             ;
+;                          ;                           ; registers:inst2|regs[0][23], registers:inst2|regs[0][22],                             ;
+;                          ;                           ; registers:inst2|regs[0][21], registers:inst2|regs[0][20],                             ;
+;                          ;                           ; registers:inst2|regs[0][19], registers:inst2|regs[0][18],                             ;
+;                          ;                           ; registers:inst2|regs[0][17], registers:inst2|regs[0][16],                             ;
+;                          ;                           ; registers:inst2|regs[0][15], registers:inst2|regs[0][14],                             ;
+;                          ;                           ; registers:inst2|regs[0][13], registers:inst2|regs[0][12],                             ;
+;                          ;                           ; registers:inst2|regs[0][11], registers:inst2|regs[0][10], registers:inst2|regs[0][9], ;
+;                          ;                           ; registers:inst2|regs[0][8], registers:inst2|regs[0][7], registers:inst2|regs[0][6],   ;
+;                          ;                           ; registers:inst2|regs[0][5], registers:inst2|regs[0][4], registers:inst2|regs[0][3],   ;
+;                          ;                           ; registers:inst2|regs[0][2], registers:inst2|regs[0][1], registers:inst2|regs[0][0]    ;
+; programa_1:inst1|ins[17] ; Stuck at GND              ; registers:inst2|regs[28][26], registers:inst2|regs[29][26],                           ;
+;                          ; due to stuck port data_in ; registers:inst2|regs[30][26], registers:inst2|regs[31][26],                           ;
+;                          ;                           ; program_counter:inst9|pc_value[0]                                                     ;
+; programa_1:inst1|ins[22] ; Stuck at GND              ; registers:inst2|regs[28][27], registers:inst2|regs[29][27],                           ;
+;                          ; due to stuck port data_in ; registers:inst2|regs[30][27], registers:inst2|regs[31][27]                            ;
++--------------------------+---------------------------+---------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -271,24 +1270,146 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 992   ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Total registers                              ; 284   ;
+; Number of registers using Synchronous Clear  ; 7     ;
+; Number of registers using Synchronous Load   ; 43    ;
+; Number of registers using Asynchronous Clear ; 58    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 992   ;
+; Number of registers using Clock Enable       ; 212   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; 33:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; No         ; |processador|registers:inst2|data_2[6]  ;
-; 33:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; No         ; |processador|registers:inst2|data_1[15] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                                                                                                                                                                                                                              ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                                                                                                                                                                                                                               ; Fan out ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1] ; 3       ;
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2] ; 3       ;
+; Total number of inverted registers = 2                                                                                                                                                                                                                                                                                          ;         ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                                                                                                                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                                                                                                                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |processador|memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[14]                                                                                                                                                                                                                       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |processador|memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[5]                                                                                                                                                                                                             ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |processador|memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[6]                                                                                                                                                                                                                        ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |processador|memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|word_counter[2]                                                                                                                                                                         ;
+; 26:1               ; 4 bits    ; 68 LEs        ; 44 LEs               ; 24 LEs                 ; Yes        ; |processador|memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[1]                                                                                                                                                                              ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |processador|registers:inst2|data_2[15]                                                                                                                                                                                                                                                                                                                               ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |processador|registers:inst2|data_1[15]                                                                                                                                                                                                                                                                                                                               ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]                             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[2]                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[3]                    ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[4]              ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg|word_counter[4] ;
+; 34:1               ; 4 bits    ; 88 LEs        ; 64 LEs               ; 24 LEs                 ; Yes        ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[1]                      ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 32 LEs               ; 20 LEs                 ; Yes        ; |processador|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg|WORD_SR[1]      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|altsyncram_pqg2:altsyncram1 ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                       ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                        ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memoria_dados:inst21|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+---------------------------------------+
+; Parameter Name                     ; Value                ; Type                                  ;
++------------------------------------+----------------------+---------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                               ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                        ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                               ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                               ;
+; WIDTH_A                            ; 32                   ; Signed Integer                        ;
+; WIDTHAD_A                          ; 10                   ; Signed Integer                        ;
+; NUMWORDS_A                         ; 1024                 ; Signed Integer                        ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                               ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                               ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                               ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                               ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                               ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                               ;
+; WIDTH_B                            ; 1                    ; Untyped                               ;
+; WIDTHAD_B                          ; 1                    ; Untyped                               ;
+; NUMWORDS_B                         ; 1                    ; Untyped                               ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                               ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                               ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                               ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                               ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                               ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                               ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                               ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                               ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                               ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                               ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                               ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                               ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                        ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                               ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                               ;
+; BYTE_SIZE                          ; 8                    ; Untyped                               ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                               ;
+; READ_DURING_WRITE_MODE_PORT_A      ; DONT_CARE            ; Untyped                               ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                               ;
+; INIT_FILE                          ; data_mem_data.mif    ; Untyped                               ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                               ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                               ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                               ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                               ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                               ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                               ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                               ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                               ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                               ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                               ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                               ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                               ;
+; CBXI_PARAMETER                     ; altsyncram_rap1      ; Untyped                               ;
++------------------------------------+----------------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                 ;
++-------------------------------------------+------------------------------------------------------+
+; Name                                      ; Value                                                ;
++-------------------------------------------+------------------------------------------------------+
+; Number of entity instances                ; 1                                                    ;
+; Entity Instance                           ; memoria_dados:inst21|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                          ;
+;     -- WIDTH_A                            ; 32                                                   ;
+;     -- NUMWORDS_A                         ; 1024                                                 ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                               ;
+;     -- WIDTH_B                            ; 1                                                    ;
+;     -- NUMWORDS_B                         ; 1                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                            ;
++-------------------------------------------+------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; In-System Memory Content Editor Settings                                                                                                        ;
++----------------+-------------+-------+-------+------------+-------------------------------------------------------------------------------------+
+; Instance Index ; Instance ID ; Width ; Depth ; Mode       ; Hierarchy Location                                                                  ;
++----------------+-------------+-------+-------+------------+-------------------------------------------------------------------------------------+
+; 0              ; MEM         ; 32    ; 1024  ; Read/Write ; memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated ;
++----------------+-------------+-------+-------+------------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -296,32 +1417,74 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 992                         ;
-;     ENA               ; 992                         ;
-; arriav_lcell_comb     ; 772                         ;
-;     arith             ; 32                          ;
-;         2 data inputs ; 32                          ;
-;     extend            ; 4                           ;
-;         7 data inputs ; 4                           ;
-;     normal            ; 736                         ;
+; arriav_ff             ; 198                         ;
+;     CLR               ; 8                           ;
+;     ENA               ; 105                         ;
+;     ENA CLR           ; 7                           ;
+;     ENA CLR SLD       ; 10                          ;
+;     ENA SLD           ; 32                          ;
+;     plain             ; 36                          ;
+; arriav_lcell_comb     ; 223                         ;
+;     arith             ; 71                          ;
+;         1 data inputs ; 38                          ;
+;         2 data inputs ; 1                           ;
+;         5 data inputs ; 32                          ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 151                         ;
 ;         0 data inputs ; 1                           ;
-;         3 data inputs ; 2                           ;
-;         5 data inputs ; 193                         ;
-;         6 data inputs ; 540                         ;
-; boundary_port         ; 161                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 15                          ;
+;         4 data inputs ; 44                          ;
+;         5 data inputs ; 74                          ;
+;         6 data inputs ; 10                          ;
+; boundary_port         ; 156                         ;
+; stratixv_ram_block    ; 32                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 7.10                        ;
-; Average LUT depth     ; 5.38                        ;
+; Max LUT depth         ; 5.10                        ;
+; Average LUT depth     ; 2.65                        ;
 +-----------------------+-----------------------------+
 
 
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
++------------------------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Partition sld_hub:auto_hub ;
++-----------------------+------------------------------------------+
+; Type                  ; Count                                    ;
++-----------------------+------------------------------------------+
+; arriav_ff             ; 86                                       ;
+;     CLR               ; 5                                        ;
+;     ENA               ; 30                                       ;
+;     ENA CLR           ; 27                                       ;
+;     ENA CLR SLD       ; 1                                        ;
+;     SCLR              ; 7                                        ;
+;     plain             ; 16                                       ;
+; arriav_lcell_comb     ; 98                                       ;
+;     extend            ; 1                                        ;
+;         7 data inputs ; 1                                        ;
+;     normal            ; 97                                       ;
+;         0 data inputs ; 1                                        ;
+;         1 data inputs ; 4                                        ;
+;         2 data inputs ; 21                                       ;
+;         3 data inputs ; 21                                       ;
+;         4 data inputs ; 14                                       ;
+;         5 data inputs ; 20                                       ;
+;         6 data inputs ; 16                                       ;
+; boundary_port         ; 103                                      ;
+;                       ;                                          ;
+; Max LUT depth         ; 3.00                                     ;
+; Average LUT depth     ; 1.41                                     ;
++-----------------------+------------------------------------------+
+
+
++---------------------------------+
+; Elapsed Time Per Partition      ;
++------------------+--------------+
+; Partition Name   ; Elapsed Time ;
++------------------+--------------+
+; Top              ; 00:00:00     ;
+; sld_hub:auto_hub ; 00:00:00     ;
++------------------+--------------+
 
 
 +-------------------------------+
@@ -330,29 +1493,101 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Fri Oct 31 13:29:03 2025
+    Info: Processing started: Fri Oct 31 20:23:24 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off processador -c processador
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file processador.bdf
     Info (12023): Found entity 1: processador
-Info (12021): Found 8 design units, including 8 entities, in source file componentes.sv
-    Info (12023): Found entity 1: alu File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 1
-    Info (12023): Found entity 2: adder File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 20
-    Info (12023): Found entity 3: registers File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 29
-    Info (12023): Found entity 4: mux32_1 File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 58
-    Info (12023): Found entity 5: control_unit File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 73
-    Info (12023): Found entity 6: immediate_generator File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 92
-    Info (12023): Found entity 7: plus_four File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 129
-    Info (12023): Found entity 8: program_counter File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 136
+Info (12021): Found 9 design units, including 9 entities, in source file componentes.sv
+    Info (12023): Found entity 1: adder File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 1
+    Info (12023): Found entity 2: alu File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 9
+    Info (12023): Found entity 3: registers File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 63
+    Info (12023): Found entity 4: mux32_1 File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 92
+    Info (12023): Found entity 5: control_unit File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 107
+    Info (12023): Found entity 6: immediate_generator File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 216
+    Info (12023): Found entity 7: plus_four File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 253
+    Info (12023): Found entity 8: program_counter File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 260
+    Info (12023): Found entity 9: programa_1 File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 272
+Info (12021): Found 1 design units, including 1 entities, in source file memoria_dados.v
+    Info (12023): Found entity 1: memoria_dados File: /home/rafa/tudo/materias/oac/ultima_tentativa/memoria_dados.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file memoria_programa.v
+    Info (12023): Found entity 1: memoria_programa File: /home/rafa/tudo/materias/oac/ultima_tentativa/memoria_programa.v Line: 40
 Info (12127): Elaborating entity "processador" for the top level hierarchy
 Info (12128): Elaborating entity "registers" for hierarchy "registers:inst2"
-Info (12128): Elaborating entity "mux32_1" for hierarchy "mux32_1:inst11"
+Info (12128): Elaborating entity "control_unit" for hierarchy "control_unit:inst20"
+Info (12128): Elaborating entity "programa_1" for hierarchy "programa_1:inst1"
+Warning (10762): Verilog HDL Case Statement warning at componentes.sv(278): can't check case statement for completeness because the case expression has too many possible states File: /home/rafa/tudo/materias/oac/ultima_tentativa/componentes.sv Line: 278
+Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:inst9"
+Info (12128): Elaborating entity "mux32_1" for hierarchy "mux32_1:inst8"
 Info (12128): Elaborating entity "alu" for hierarchy "alu:inst10"
 Info (12128): Elaborating entity "immediate_generator" for hierarchy "immediate_generator:inst4"
-Info (12128): Elaborating entity "adder" for hierarchy "adder:inst5"
-Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:inst9"
 Info (12128): Elaborating entity "plus_four" for hierarchy "plus_four:inst7"
+Info (12128): Elaborating entity "adder" for hierarchy "adder:inst5"
+Info (12128): Elaborating entity "memoria_dados" for hierarchy "memoria_dados:inst21"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "memoria_dados:inst21|altsyncram:altsyncram_component" File: /home/rafa/tudo/materias/oac/ultima_tentativa/memoria_dados.v Line: 86
+Info (12130): Elaborated megafunction instantiation "memoria_dados:inst21|altsyncram:altsyncram_component" File: /home/rafa/tudo/materias/oac/ultima_tentativa/memoria_dados.v Line: 86
+Info (12133): Instantiated megafunction "memoria_dados:inst21|altsyncram:altsyncram_component" with the following parameter: File: /home/rafa/tudo/materias/oac/ultima_tentativa/memoria_dados.v Line: 86
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "data_mem_data.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=YES,INSTANCE_NAME=MEM"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "1024"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "DONT_CARE"
+    Info (12134): Parameter "widthad_a" = "10"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_rap1.tdf
+    Info (12023): Found entity 1: altsyncram_rap1 File: /home/rafa/tudo/materias/oac/ultima_tentativa/db/altsyncram_rap1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_rap1" for hierarchy "memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated" File: /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_pqg2.tdf
+    Info (12023): Found entity 1: altsyncram_pqg2 File: /home/rafa/tudo/materias/oac/ultima_tentativa/db/altsyncram_pqg2.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_pqg2" for hierarchy "memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|altsyncram_pqg2:altsyncram1" File: /home/rafa/tudo/materias/oac/ultima_tentativa/db/altsyncram_rap1.tdf Line: 37
+Critical Warning (127003): Can't find Memory Initialization File or Hexadecimal (Intel-Format) File /home/rafa/tudo/materias/oac/ultima_tentativa/data_mem_data.mif -- setting all initial values to 0 File: /home/rafa/tudo/materias/oac/ultima_tentativa/memoria_dados.v Line: 86
+Info (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|sld_mod_ram_rom:mgl_prim2" File: /home/rafa/tudo/materias/oac/ultima_tentativa/db/altsyncram_rap1.tdf Line: 38
+Info (12130): Elaborated megafunction instantiation "memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|sld_mod_ram_rom:mgl_prim2" File: /home/rafa/tudo/materias/oac/ultima_tentativa/db/altsyncram_rap1.tdf Line: 38
+Info (12133): Instantiated megafunction "memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter: File: /home/rafa/tudo/materias/oac/ultima_tentativa/db/altsyncram_rap1.tdf Line: 38
+    Info (12134): Parameter "CVALUE" = "00000000000000000000000000000000"
+    Info (12134): Parameter "IS_DATA_IN_RAM" = "1"
+    Info (12134): Parameter "IS_READABLE" = "1"
+    Info (12134): Parameter "NODE_NAME" = "1296387328"
+    Info (12134): Parameter "NUMWORDS" = "1024"
+    Info (12134): Parameter "SHIFT_COUNT_BITS" = "6"
+    Info (12134): Parameter "WIDTH_WORD" = "32"
+    Info (12134): Parameter "WIDTHAD" = "10"
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 302
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
+Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "memoria_dados:inst21|altsyncram:altsyncram_component|altsyncram_rap1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr" File: /home/rafa/tudo/bin/quartus/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 828
+Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
+Info (11172): 2025.10.31.20:23:31 Progress: Loading slda00c2e34/alt_sld_fab_wrapper_hw.tcl
+Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
+Info (11172): Alt_sld_fab: Generating "alt_sld_fab" for QUARTUS_SYNTH
+Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
+Info (11172): Presplit: "alt_sld_fab" instantiated altera_super_splitter "presplit"
+Info (11172): Splitter: "alt_sld_fab" instantiated altera_sld_splitter "splitter"
+Info (11172): Sldfabric: "alt_sld_fab" instantiated altera_sld_jtag_hub "sldfabric"
+Info (11172): Ident: "alt_sld_fab" instantiated altera_connection_identification_hub "ident"
+Info (11172): Alt_sld_fab: Done "alt_sld_fab" with 6 modules, 6 files
+Info (11171): Finished IP generation for the debug fabric: alt_sld_fab.
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slda00c2e34/alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab File: /home/rafa/tudo/materias/oac/ultima_tentativa/db/ip/slda00c2e34/alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: /home/rafa/tudo/materias/oac/ultima_tentativa/db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_ident.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: /home/rafa/tudo/materias/oac/ultima_tentativa/db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: /home/rafa/tudo/materias/oac/ultima_tentativa/db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
+    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: /home/rafa/tudo/materias/oac/ultima_tentativa/db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: /home/rafa/tudo/materias/oac/ultima_tentativa/db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: /home/rafa/tudo/materias/oac/ultima_tentativa/db/ip/slda00c2e34/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "reg0[31]" is stuck at GND
     Warning (13410): Pin "reg0[30]" is stuck at GND
@@ -386,35 +1621,27 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "reg0[2]" is stuck at GND
     Warning (13410): Pin "reg0[1]" is stuck at GND
     Warning (13410): Pin "reg0[0]" is stuck at GND
-Info (286030): Timing-Driven Synthesis is running
+Info (286031): Timing-Driven Synthesis is running on partition "Top"
+Info (17049): 896 registers lost all their fanouts during netlist optimizations.
+Info (286031): Timing-Driven Synthesis is running on partition "sld_hub:auto_hub"
+Info (144001): Generated suppressed messages file /home/rafa/tudo/materias/oac/ultima_tentativa/output_files/processador.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 17 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "instrucao[31]"
-    Warning (15610): No output dependent on input pin "instrucao[30]"
-    Warning (15610): No output dependent on input pin "instrucao[29]"
-    Warning (15610): No output dependent on input pin "instrucao[28]"
-    Warning (15610): No output dependent on input pin "instrucao[27]"
-    Warning (15610): No output dependent on input pin "instrucao[26]"
-    Warning (15610): No output dependent on input pin "instrucao[25]"
-    Warning (15610): No output dependent on input pin "instrucao[14]"
-    Warning (15610): No output dependent on input pin "instrucao[13]"
-    Warning (15610): No output dependent on input pin "instrucao[12]"
-    Warning (15610): No output dependent on input pin "instrucao[6]"
-    Warning (15610): No output dependent on input pin "instrucao[5]"
-    Warning (15610): No output dependent on input pin "instrucao[4]"
-    Warning (15610): No output dependent on input pin "instrucao[3]"
-    Warning (15610): No output dependent on input pin "instrucao[2]"
-    Warning (15610): No output dependent on input pin "instrucao[1]"
-    Warning (15610): No output dependent on input pin "instrucao[0]"
-Info (21057): Implemented 1924 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 33 input pins
-    Info (21059): Implemented 128 output pins
-    Info (21061): Implemented 1763 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
-    Info: Peak virtual memory: 527 megabytes
-    Info: Processing ended: Fri Oct 31 13:29:08 2025
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:13
+    Info (16011): Adding 9 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 649 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 129 output pins
+    Info (21061): Implemented 483 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 36 warnings
+    Info: Peak virtual memory: 568 megabytes
+    Info: Processing ended: Fri Oct 31 20:23:37 2025
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:29
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/rafa/tudo/materias/oac/ultima_tentativa/output_files/processador.map.smsg.
 
 

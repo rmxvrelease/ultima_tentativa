@@ -1,5 +1,5 @@
 EDA Netlist Writer report for processador
-Fri Oct 31 13:30:23 2025
+Fri Oct 31 20:25:40 2025
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -37,7 +37,7 @@ on the Quartus Prime software download page.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Fri Oct 31 13:30:23 2025 ;
+; EDA Netlist Writer Status ; Successful - Fri Oct 31 20:25:40 2025 ;
 ; Revision Name             ; processador                           ;
 ; Top-level Entity Name     ; processador                           ;
 ; Family                    ; Cyclone V                             ;
@@ -95,13 +95,13 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Altera and sold by Altera or its authorized distributors.  Please
     Info: refer to the Altera Software License Subscription Agreements 
     Info: on the Quartus Prime software download page.
-    Info: Processing started: Fri Oct 31 13:30:22 2025
+    Info: Processing started: Fri Oct 31 20:25:39 2025
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=/home/rafa/tudo/materias/oac/ultima_tentativa/simulation/qsim/ processador -c processador
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file processador.vo in folder "/home/rafa/tudo/materias/oac/ultima_tentativa/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 690 megabytes
-    Info: Processing ended: Fri Oct 31 13:30:23 2025
+    Info: Peak virtual memory: 675 megabytes
+    Info: Processing ended: Fri Oct 31 20:25:40 2025
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
