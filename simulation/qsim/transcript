@@ -1,0 +1,55 @@
+# do processador.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+# Start time: 13:30:23 on Oct 31,2025
+# vlog -work work processador.vo 
+# -- Compiling module processador
+# 
+# Top level modules:
+# 	processador
+# End time: 13:30:23 on Oct 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+# Start time: 13:30:23 on Oct 31,2025
+# vlog -work work Waveform.vwf.vt 
+# -- Compiling module processador_vlg_vec_tst
+# 
+# Top level modules:
+# 	processador_vlg_vec_tst
+# End time: 13:30:23 on Oct 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -suppress 12110 -novopt -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.processador_vlg_vec_tst 
+# Start time: 13:30:23 on Oct 31,2025
+# ** Warning: (vsim-8891) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2024.3 linux_x86_64 Sep 10 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Refreshing /home/rafa/tudo/materias/oac/ultima_tentativa/simulation/qsim/work.processador_vlg_vec_tst
+# ** Warning: (vlog-8891) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
+# Loading work.processador_vlg_vec_tst
+# Refreshing /home/rafa/tudo/materias/oac/ultima_tentativa/simulation/qsim/work.processador
+# ** Warning: (vlog-8891) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
+# Loading work.processador
+# Loading cyclonev_ver.cyclonev_io_obuf
+# Loading cyclonev_ver.cyclonev_io_ibuf
+# Loading cyclonev_ver.cyclonev_clkena
+# Loading cyclonev_ver.cyclonev_lcell_comb
+# Loading altera_ver.dffeas
+# Loading altera_ver.PRIM_GDFF_LOW
+# after#26
+# ** Note: $finish    : Waveform.vwf.vt(53)
+#    Time: 1 us  Iteration: 0  Instance: /processador_vlg_vec_tst
+# End time: 13:30:24 on Oct 31,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 1

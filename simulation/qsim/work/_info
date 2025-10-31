@@ -1,0 +1,57 @@
+m255
+K4
+z2
+!s11f vlog 2024.3 2024.09, Sep 10 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/rafa/tudo/materias/oac/ultima_tentativa/simulation/qsim
+vprocessador
+Z1 !s110 1761928223
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+2processador.vo
+!i10b 1
+!s100 bjdZMHKJ^IL?@hlHKHnZL1
+I_RFO=VKmTXP?N0bBVXIm]0
+R0
+w1761928223
+8processador.vo
+Fprocessador.vo
+!i122 12
+L0 32 50535
+Z3 OL;L;2024.3;79
+31
+Z4 !s108 1761928223.000000
+!s107 processador.vo|
+!s90 -work|work|processador.vo|
+!i113 0
+Z5 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z6 tCvgOpt 0
+vprocessador_vlg_vec_tst
+R1
+R2
+r1
+!s85 0
+2Waveform.vwf.vt
+!i10b 1
+!s100 7DBX`d9HQ_mi[HTM<WFe:2
+IK<Ii:aGd`az9[Pj8Y<OXU2
+R0
+w1761928222
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+!i122 13
+L0 30 198
+R3
+31
+R4
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
+!i113 0
+R5
+R6
